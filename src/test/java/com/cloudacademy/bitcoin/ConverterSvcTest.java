@@ -1,41 +1,13 @@
 package com.cloudacademy.bitcoin;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
-import org.apache.http.client.HttpClient;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.client.methods.CloseableHttpResponse;
-
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-
-import static org.mockito.Mockito.*;
-
-import java.io.IOException;
-import java.text.ParseException;
 
 /**
  * Unit test for simple ConverterSvc.
  */
 public class ConverterSvcTest 
 {
-    private static final double DELTA = 0;
-
-    private CloseableHttpClient client;
-    private CloseableHttpResponse response;
-    private StatusLine statusLine;
-    private HttpEntity entity;
-    private InputStream stream;
-
     private ConverterSvc converterSvc;
 
     @Test
