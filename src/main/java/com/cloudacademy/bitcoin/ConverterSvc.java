@@ -8,6 +8,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -17,6 +19,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import java.io.ByteArrayInputStream;
+
+import java.io.IOException;
+import java.text.ParseException;
+
 
 public class ConverterSvc 
 {
@@ -70,34 +76,54 @@ public class ConverterSvc
         this.httpclient = httpClient;
     }
 
-    public double GetExchangeRate(String currency) {
+    public enum Currency {
+        USD,
+        GBP,
+        EUR
+    }
+
+    public double GetExchangeRate(Currency currency) {
         double rate = 0;
 
-        try {
-            CloseableHttpResponse response = this.httpclient.execute(httpget);
-            HttpEntity entity = response.getEntity();
+        try (CloseableHttpResponse response = this.httpclient.execute(httpget)) {
+            switch (response.getStatusLine().getStatusCode()) {
+                case 200:
+                    HttpEntity entity = response.getEntity();
 
-            InputStream inputStream = response.getEntity().getContent();
-            var json = new BufferedReader(new InputStreamReader(inputStream));
+                    InputStream inputStream = response.getEntity().getContent();
+                    var json = new BufferedReader(new InputStreamReader(inputStream));
 
-            @SuppressWarnings("deprecation")
-            JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
-            String n = jsonObject.get("bpi").getAsJsonObject().get(currency).getAsJsonObject().get("rate").getAsString();
-            NumberFormat nf = NumberFormat.getInstance();
-            rate = nf.parse(n).doubleValue();
-        } catch (Exception ex) {
+                    @SuppressWarnings("deprecation")
+                    JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+                    String n = jsonObject.get("bpi").getAsJsonObject().get(currency.toString()).getAsJsonObject().get("rate").getAsString();
+                    NumberFormat nf = NumberFormat.getInstance();
+                    rate = nf.parse(n).doubleValue();
+
+                    break;
+                default:
+                    rate = -1;
+            }
+        } catch (IOException | ParseException ex) {
             rate = -1;
         }
 
         return rate;
     }
 
-    public double ConvertBitcoins(String currency, int coins) {
+    public double ConvertBitcoins(Currency currency, double coins) throws IllegalArgumentException {
         double dollars = 0;
+
+        if(coins < 0) {
+            throw new IllegalArgumentException("Number of coins must not be less than zero"); 
+        }
 
         var exchangeRate = GetExchangeRate(currency);
 
-        dollars = exchangeRate * coins;
+        if(exchangeRate >= 0) {
+            dollars = exchangeRate * coins;
+        } else {
+            dollars = -1;
+        }
 
         return dollars;
     }
