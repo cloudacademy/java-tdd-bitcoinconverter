@@ -63,7 +63,11 @@ public class ConverterSvc
     */
 
     public ConverterSvc() {
-         this.httpclient = HttpClients.createDefault();
+        this.httpclient = HttpClients.createDefault();
+    }
+
+    public ConverterSvc(CloseableHttpClient httpClient) {
+        this.httpclient = httpClient;
     }
 
     public double GetExchangeRate(String currency) {
