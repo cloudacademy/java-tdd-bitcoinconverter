@@ -1,6 +1,8 @@
-name: Java CI
+name:
 
-on: [push]
+on:
+  push:
+    branches: main
 
 jobs:
   build:
@@ -19,6 +21,10 @@ jobs:
           mvn -B clean package
           mkdir staging
           cp target/*.jar staging
+
+      - name: Code Coverage
+        run: |
+          mvn -B jacoco:prepare-agent clean test jacoco:report coveralls:report -Dcoveralls.secret=${{ secrets.COVERALLS }}
 
       - name: Artifact Upload
         uses: actions/upload-artifact@v2
