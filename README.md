@@ -86,7 +86,7 @@ This project also contains a sample [client](https://github.com/cloudacademy/jav
 #build/package executable jar
 cd client
 FILE=bitcoin-converter-svc-lib-1.0.9-SNAPSHOT.jar
-VERSION=`echo $FILE | egrep -o '\d\.\d\.\d\-\w*'`
+VERSION=`echo $FILE | egrep -o '\d*\.\d*\.\d*\-\w*'`
 mvn install:install-file -Dfile=./libs/$FILE -DgroupId=com.cloudacademy -DartifactId=bitcoin-converter-svc-lib -Dversion=$VERSION -Dpackaging=jar
 mvn clean package
 
