@@ -7,6 +7,31 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 :metal:
 
+## Prerequisites
+*JDK11* and *Maven3* are required for this project. 
+
+The provides sample code and instructions have been tested with the following versions:
+
+JDK11:
+
+```
+java -version
+openjdk version "11.0.9" 2020-10-20
+OpenJDK Runtime Environment (build 11.0.9+11)
+OpenJDK 64-Bit Server VM (build 11.0.9+11, mixed mode)
+```
+
+Maven3:
+
+```
+mvn --version
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Maven home: /usr/local/Cellar/maven/3.6.3_1/libexec
+Java version: 14.0.1, vendor: N/A, runtime: /usr/local/Cellar/openjdk/14.0.1/libexec/openjdk.jdk/Contents/Home
+Default locale: en_NZ, platform encoding: UTF-8
+OS name: "mac os x", version: "10.15.7", arch: "x86_64", family: "mac"
+```
+
 ## Tools and Frameworks
 The following tools and frameworks have been used to perform the TDD developement:
 
