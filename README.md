@@ -8,11 +8,11 @@ The following repo contains source code developed using TDD (Test Driven Develop
 :metal:
 
 ## Prerequisites
-*JDK11* and *Maven3* are required for this project. 
+**JDK11** and **Maven3** are required for this project. 
 
 The provides sample code and instructions have been tested with the following versions:
 
-JDK11:
+* JDK11
 
 ```
 java -version
@@ -21,7 +21,7 @@ OpenJDK Runtime Environment (build 11.0.9+11)
 OpenJDK 64-Bit Server VM (build 11.0.9+11, mixed mode)
 ```
 
-Maven3:
+* Maven3
 
 ```
 mvn --version
