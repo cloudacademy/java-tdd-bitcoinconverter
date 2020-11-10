@@ -10,7 +10,7 @@ The following repo contains source code developed using TDD (Test Driven Develop
 ## Prerequisites
 **JDK11** and **Maven3** are required for this project. 
 
-The provides sample code and instructions have been tested with the following versions:
+All provided sample code and instructions have been tested with the following versions:
 
 * JDK11
 
