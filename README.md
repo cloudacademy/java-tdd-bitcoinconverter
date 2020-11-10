@@ -35,11 +35,16 @@ OS name: "mac os x", version: "10.15.7", arch: "x86_64", family: "mac"
 ## Tools and Frameworks
 The following tools and frameworks have been used to perform the TDD developement:
 
+* [Maven](http://maven.apache.org/) - used to provide build and test project automation and management
 * [JUnit5](https://junit.org/junit5/) - a unit testing framework, used to implement unit tests
 * [Mockito](https://site.mockito.org/) - a mocking library, used to create mocks for external dependencies
-* [Maven](http://maven.apache.org/) - used to provide build and test project automation and management
 * [GitHub Actions](https://github.com/features/actions) - used to provide CICD features for automated building and testing
 * [Coveralls](https://coveralls.io/) - used to provide unit test code coverage reports
+
+## JDK11 and JUnit5 Maven Archetype
+The following custom Maven Archetype has been made available - this can used to create new JDK11 and JUnit5 based projects:
+
+https://github.com/cloudacademy/java11-junit5-archetype
 
 ## Repo Branches
 Branches are used within this repo to demonstrate the TDD workflow (red, green, refactor), as well as highlighting other project management configuration areas. These branches allow you to quickly jump ahead to the area of interest:
