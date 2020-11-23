@@ -10,8 +10,10 @@ public class ConverterSvcTest
 {
     @Test
     public void getExchangeRate_USD_ReturnsUSDExchangeRate() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.getExchangeRate("USD");
 
         //assert
@@ -21,8 +23,10 @@ public class ConverterSvcTest
 
     @Test
     public void getExchangeRate_GBP_ReturnsGBPExchangeRate() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.getExchangeRate("GBP");
 
         //assert
@@ -32,8 +36,10 @@ public class ConverterSvcTest
 
     @Test
     public void getExchangeRate_EUR_ReturnsEURExchangeRate() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.getExchangeRate("EUR");
 
         //assert
@@ -43,8 +49,10 @@ public class ConverterSvcTest
     
     @Test
     public void convertBitcoins_1BitCoinToUSD_ReturnsUSDDollars() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.convertBitcoins("USD", 1);
     
         //assert
@@ -54,8 +62,10 @@ public class ConverterSvcTest
     
     @Test
     public void convertBitcoins_2BitCoinToUSD_ReturnsUSDDollars() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.convertBitcoins("USD", 2);
     
         //assert
@@ -65,8 +75,10 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_1BitCoinToGBP_ReturnsGBPDollars() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.convertBitcoins("GBP", 1);
     
         //assert
@@ -76,8 +88,10 @@ public class ConverterSvcTest
     
     @Test
     public void convertBitcoins_2BitCoinToGBP_ReturnsGBPDollars() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.convertBitcoins("GBP", 2);
     
         //assert
@@ -87,8 +101,10 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_1BitCoinToEUR_ReturnsEURDollars() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.convertBitcoins("EUR", 1);
     
         //assert
@@ -98,8 +114,10 @@ public class ConverterSvcTest
     
     @Test
     public void convertBitcoins_2BitCoinToEUR_ReturnsEURDollars() {
-        //act
+        //arrange
         ConverterSvc converterSvc = new ConverterSvc();
+
+        //act
         var actual = converterSvc.convertBitcoins("EUR", 2);
     
         //assert
