@@ -40,12 +40,14 @@ public class ConverterSvcTest
 
     @Test
     public void getExchangeRate_USD_ReturnsUSDExchangeRate() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
 
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.getExchangeRate(ConverterSvc.Currency.USD);
 
@@ -56,12 +58,14 @@ public class ConverterSvcTest
 
     @Test
     public void getExchangeRate_GBP_ReturnsGBPExchangeRate() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.getExchangeRate(ConverterSvc.Currency.GBP);
     
@@ -72,12 +76,14 @@ public class ConverterSvcTest
 
     @Test
     public void getExchangeRate_EUR_ReturnsEURExchangeRate() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.getExchangeRate(ConverterSvc.Currency.EUR);
     
@@ -88,8 +94,10 @@ public class ConverterSvcTest
 
     @Test
     public void getExchangeRate_ExecuteThrowsIOException_ReturnsCorrectErrorCode() throws IOException {
+        //arrange
         when(client.execute(any(HttpGet.class))).thenThrow(IOException.class);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.getExchangeRate(ConverterSvc.Currency.USD);
     
@@ -100,6 +108,7 @@ public class ConverterSvcTest
 
     @Test
     public void getExchangeRate_ClosingResponseThrowsIOException_ReturnsCorrectErrorCode() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
@@ -107,7 +116,8 @@ public class ConverterSvcTest
         when(client.execute(any(HttpGet.class))).thenReturn(response);
 
         doThrow(IOException.class).when(response).close();
-    
+
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.getExchangeRate(ConverterSvc.Currency.USD);
     
@@ -118,12 +128,14 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_1BitCoinToUSD_ReturnsUSDDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.USD, 1);
     
@@ -134,12 +146,14 @@ public class ConverterSvcTest
     
     @Test
     public void convertBitcoins_2BitCoinToUSD_ReturnsUSDDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.USD, 2);
     
@@ -150,12 +164,14 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_0BitCoinToUSD_ReturnsZeroUSDDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.USD, 0);
     
@@ -166,12 +182,14 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_1BitCoinToGBP_ReturnsGBPDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.GBP, 1);
     
@@ -182,12 +200,14 @@ public class ConverterSvcTest
     
     @Test
     public void convertBitcoins_2BitCoinToGBP_ReturnsGBPDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.GBP, 2);
     
@@ -198,12 +218,14 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_0BitCoinToGBP_ReturnsZeroGBPDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.GBP, 0);
     
@@ -214,12 +236,14 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_1BitCoinToEUR_ReturnsEURDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.EUR, 1);
     
@@ -230,12 +254,14 @@ public class ConverterSvcTest
     
     @Test
     public void convertBitcoins_2BitCoinToEUR_ReturnsEURDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.EUR, 2);
     
@@ -246,12 +272,14 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_0BitCoinToEUR_ReturnsZeroEURDollars() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.EUR, 0);
     
@@ -262,22 +290,26 @@ public class ConverterSvcTest
 
     @Test
     public void convertBitcoins_NegativeBitCoinsToUSD_ThrowsException() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(200);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(response.getEntity()).thenReturn(entity);
         when(entity.getContent()).thenReturn(stream);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         Assertions.assertThrows(IllegalArgumentException.class, () -> converterSvc.convertBitcoins(ConverterSvc.Currency.USD, -1));
     }
 
     @Test
     public void convertBitcoins_503ServiceUnavailable_ReturnsCorrectErrorCode() throws IOException {
+        //arrange
         when(statusLine.getStatusCode()).thenReturn(503);
         when(response.getStatusLine()).thenReturn(statusLine);
         when(client.execute(any(HttpGet.class))).thenReturn(response);
     
+        //act
         ConverterSvc converterSvc = new ConverterSvc(client);
         var actual = converterSvc.convertBitcoins(ConverterSvc.Currency.USD, 2);
     
