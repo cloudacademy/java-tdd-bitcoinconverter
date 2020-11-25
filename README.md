@@ -12,7 +12,7 @@ Download the ```bitcoin-converter-svc-lib-1.0.*-SNAPSHOT.jar``` from the Github 
 Use Maven to install ```bitcoin-converter-svc-lib-1.0.*-SNAPSHOT.jar``` library locally:
 
 ```
-FILE=bitcoin-converter-svc-lib-1.0.9-SNAPSHOT.jar
+FILE=bitcoin-converter-svc-lib-1.0.10-SNAPSHOT.jar
 VERSION=`echo $FILE | egrep -o '\d\.\d\.\d\-\w*'`
 mvn install:install-file -Dfile=./libs/$FILE -DgroupId=com.cloudacademy -DartifactId=bitcoin-converter-svc-lib -Dversion=$VERSION -Dpackaging=jar
 ```
