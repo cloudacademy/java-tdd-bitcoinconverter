@@ -9,6 +9,8 @@ This branch (step1) demonstrates how to setup the initial project structure with
 
 Install JDK11 and Maven 3 on Ubuntu 18.04:
 
+Note: This is already done as part of the [Vagrantfile](https://github.com/cloudacademy/java-tdd-bitcoinconverter/blob/step1/Vagrantfile) setup
+
 ```
 {
 wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
