@@ -51,7 +51,7 @@ java -version
 mvn --version
 ```
 
-Install custom Java11 and JUnit5 Maven Archetype:
+Install custom Java11 and JUnit5 [Maven Archetype](https://github.com/cloudacademy/java11-junit5-archetype):
 
 ```
 git clone https://github.com/cloudacademy/java11-junit5-archetype.git
