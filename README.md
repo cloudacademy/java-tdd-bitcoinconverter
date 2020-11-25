@@ -5,11 +5,11 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
-This branch (step7) introduces a client console project to test the GitHub Action built jar library artifact
+This branch (step7) introduces a [client console](https://github.com/cloudacademy/java-tdd-bitcoinconverter/tree/step7/client) based project which imports and uses the GitHub Action built ```bitcoin-converter-svc-lib-1.0.*-SNAPSHOT.jar``` library artifact
 
-Download the ```bitcoin-converter-svc-lib-1.0.9-SNAPSHOT.jar``` from the Github Releases page.
+Download the ```bitcoin-converter-svc-lib-1.0.*-SNAPSHOT.jar``` from the Github Releases page.
 
-Use Maven to install ```bitcoin-converter-svc-lib-1.0.9-SNAPSHOT.jar``` library locally:
+Use Maven to install ```bitcoin-converter-svc-lib-1.0.*-SNAPSHOT.jar``` library locally:
 
 ```
 FILE=bitcoin-converter-svc-lib-1.0.9-SNAPSHOT.jar
