@@ -7,10 +7,9 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 This branch (step2) refactors current unit tests and codebase to call the real Bitcoin Price Index API using the Apache HttpClient for HTTP access - the tests in this step will fail, this introduces you to the next step (mocks)
 
-Search Maven Central Repository for both Apache HTTP Components and Google Code GSON libraries:
+Search [Maven Central Repository](https://search.maven.org) for both [Apache HTTP Components](https://search.maven.org/artifact/org.apache.httpcomponents/httpclient/4.5.13/jar) and [Google Code GSON](https://search.maven.org/artifact/org.apache.httpcomponents/httpclient/4.5.13/jar) libraries:
 
 ```
-https://search.maven.org/
 https://search.maven.org/artifact/org.apache.httpcomponents/httpclient/4.5.13/jar
 https://search.maven.org/artifact/com.google.code.gson/gson/2.8.6/jar
 ```
