@@ -104,7 +104,7 @@ This project demonstrates how to use [GitHub Actions](https://github.com/cloudac
 
 ### dev.build.yml
 ```
-name: 
+name: Java CI Dev
 
 on:
   push:
@@ -141,7 +141,7 @@ jobs:
 
 ### prod.build.yml
 ```
-name: 
+name: Java CI Prod
 
 on:
   push:
