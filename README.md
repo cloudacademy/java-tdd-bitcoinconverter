@@ -5,7 +5,7 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
-This branch (step5) adds in a GitHub Action workflow to perform automatic build and tests on push events - produces a jar artifact
+This branch (step5) adds in a [GitHub Action](https://github.com/cloudacademy/java-tdd-bitcoinconverter/tree/step5/.github/workflows) workflow to perform automatic build and tests on push events - produces a jar artifact
 
 ```
 name: Java CI
