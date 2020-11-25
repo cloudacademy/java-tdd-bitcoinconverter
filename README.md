@@ -86,6 +86,47 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+Add the following to the ```pom.xml``` file to enable code coverage using https://coveralls.io/ for viewing and analysis:
+
+Note: Requires a GitHub secret setup name ```COVERALLS``` - which contains the Coveralls project token. This allows GitHub to push the code coverage reports into Coveralls.
+
+```
+<plugin>	
+    <groupId>org.jacoco</groupId>	
+    <artifactId>jacoco-maven-plugin</artifactId>	
+    <version>0.8.6</version>	
+    <executions>	
+    <execution>	
+        <goals>	
+        <goal>prepare-agent</goal>	
+        </goals>	
+    </execution>	
+    <execution>	
+        <id>report</id>	
+        <phase>prepare-package</phase>	
+        <goals>	
+        <goal>report</goal>	
+        </goals>	
+    </execution>	
+    </executions>	
+</plugin>	
+<plugin>	
+    <groupId>org.eluder.coveralls</groupId>	
+    <artifactId>coveralls-maven-plugin</artifactId>	
+    <version>4.3.0</version>	
+    <configuration>	
+    <repoToken>${coveralls.secret}</repoToken>	
+    </configuration>	
+    <dependencies>	
+    <dependency>	
+    <groupId>javax.xml.bind</groupId>	
+    <artifactId>jaxb-api</artifactId>	
+    <version>2.2.3</version>	
+    </dependency>	
+    </dependencies>	
+</plugin>
+```
+
 Build, test, and package Java11 and JUnit5 solution:
 
 ```
