@@ -5,7 +5,7 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 ## Notes
 
-This branch (step6) refactors the single GitHub Action workflow into seperate Dev and Prod GitHub Action workflows - the Dev workflow generates a unit test code coverage report and forwards it automatically into https://coveralls.io/ for viewing and analysis - the Prod workflow is used to produce releases
+This branch (step6) refactors the [GitHub Action](https://github.com/cloudacademy/java-tdd-bitcoinconverter/tree/step6/.github/workflows) workflow into seperate Dev and Prod GitHub Action workflows - the Dev workflow generates a unit test code coverage report and forwards it automatically into https://coveralls.io/ for viewing and analysis - the Prod workflow is used to produce releases
 
 **Dev**
 
