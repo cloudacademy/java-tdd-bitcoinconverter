@@ -7,6 +7,8 @@ The following repo contains source code developed using TDD (Test Driven Develop
 
 :metal:
 
+![Bitcoin Converter Architecture](./docs/java-tdd-bitcoinconverter.png)
+
 Note: If you intend to follow along and complete the full demonstration then please fork or setup a new GitHub repo - as step 6 will require you to create a GitHub Secret to store the [Coveralls](https://coveralls.io/) project token. Coveralls is used to create code coverage reports and visuals. 
 
 ## Prerequisites
