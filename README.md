@@ -92,15 +92,25 @@ mvn clean compile test package
 This project also contains a sample [client](https://github.com/cloudacademy/java-tdd-bitcoinconverter/tree/main/client) console based application - which imports the Bitcoin Converter library. To build and run the client perform the following commands:
 
 ```bash
-#build/package executable jar
+{
 cd client
-FILE=bitcoin-converter-svc-lib-1.0.9-SNAPSHOT.jar
-VERSION=`echo $FILE | egrep -o '\d*\.\d*\.\d*\-\w*'`
-mvn install:install-file -Dfile=./libs/$FILE -DgroupId=com.cloudacademy -DartifactId=bitcoin-converter-svc-lib -Dversion=$VERSION -Dpackaging=jar
+
+#install bitcoin lib
+FILE=`ls libs/`
+VERSION=`echo $FILE | egrep -o "([0-9]{1,}\.)+[0-9]{1,}-\w*"`
+mvn install:install-file \
+ -Dfile=./libs/$FILE \
+ -DgroupId=com.cloudacademy \
+ -DartifactId=bitcoin-converter-svc-lib \
+ -Dversion=$VERSION \
+ -Dpackaging=jar
+
+#build and package console app
 mvn clean package
 
-#run executable jar:
+#execute console app
 java -jar target/bitcoin-converter-client-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+}
 ```
 
 ## GitHub Action - CICD
