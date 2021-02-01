@@ -197,7 +197,7 @@ jobs:
 ```
 
 ## Coveralls - Code Coverage Report
-This project forwards its unit testing code coverage reports to [coveralls.io](https://coveralls.io/github/cloudacademy/java-tdd-bitcoinconverter) for report viewing and analysis
+This project forwards its unit testing code coverage reports to [coveralls.io](https://coveralls.io/github/cloudacademy/java-tdd-bitcoinconverter) for report viewing and analysis.
 
 ## Vagrant
 The provided [Vagrantfile](https://github.com/cloudacademy/java-tdd-bitcoinconverter/blob/main/Vagrantfile) can be used to spin up an Ubuntu 18.04 instance, which is bootstrapped to install both OpenJDK 11 and Maven 3.6.3:
