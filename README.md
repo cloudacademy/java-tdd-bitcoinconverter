@@ -12,7 +12,7 @@ The following repo contains source code developed using TDD (Test Driven Develop
 :metal:
 
 ## Prerequisites
-**JDK11** and **Maven3** are required for this project. 
+**JDK11** and **Maven3** are required for this project 
 
 All provided sample code and instructions have been tested with the following versions:
 
