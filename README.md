@@ -26,11 +26,11 @@ echo ========================
 echo installing openjdk-11-jdk...
 apt-get install -y openjdk-11-jdk
 echo ========================
-echo installing maven 3.6.3...
+echo installing maven 3.8.2...
 cd /tmp
-curl -OLs --output /dev/null https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+curl -OLs --output /dev/null https://dlcdn.apache.org/maven/maven-3/3.8.2/binaries/apache-maven-3.8.2-bin.tar.gz
 tar xf /tmp/apache-maven-*.tar.gz -C /opt
-ln -s /opt/apache-maven-3.6.3 /opt/maven
+ln -s /opt/apache-maven-3.8.2 /opt/maven
 cat <<EOF >> /etc/profile.d/maven.sh
 export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 export M2_HOME=/opt/maven
