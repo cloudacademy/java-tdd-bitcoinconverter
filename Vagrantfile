@@ -13,11 +13,13 @@ apt-get install -y openjdk-11-jdk
 
 echo ========================
 
-echo installing maven 3.8.2...
+echo installing LATEST maven ...
 cd /tmp
-curl -OLs --output /dev/null https://dlcdn.apache.org/maven/maven-3/3.8.2/binaries/apache-maven-3.8.2-bin.tar.gz
+LATEST_SEMVER=$(curl -s https://maven.apache.org/download.cgi | grep "is the latest release and recommended version for all users." | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
+echo downloading https://dlcdn.apache.org/maven/maven-3/$LATEST_SEMVER/binaries/apache-maven-$LATEST_SEMVER-bin.tar.gz ...
+curl -OLs --output /dev/null https://dlcdn.apache.org/maven/maven-3/$LATEST_SEMVER/binaries/apache-maven-$LATEST_SEMVER-bin.tar.gz
 tar xf /tmp/apache-maven-*.tar.gz -C /opt
-ln -s /opt/apache-maven-3.8.2 /opt/maven
+ln -s /opt/apache-maven-$LATEST_SEMVER /opt/maven
 cat <<EOF >> /etc/profile.d/maven.sh
 export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 export M2_HOME=/opt/maven
