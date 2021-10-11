@@ -29,11 +29,11 @@ OpenJDK 64-Bit Server VM (build 11.0.9+11, mixed mode)
 
 ```
 mvn --version
-Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
-Maven home: /usr/local/Cellar/maven/3.6.3_1/libexec
-Java version: 14.0.1, vendor: N/A, runtime: /usr/local/Cellar/openjdk/14.0.1/libexec/openjdk.jdk/Contents/Home
-Default locale: en_NZ, platform encoding: UTF-8
-OS name: "mac os x", version: "10.15.7", arch: "x86_64", family: "mac"
+Apache Maven 3.8.3 (ff8e977a158738155dc465c6a97ffaf31982d739)
+Maven home: /opt/maven
+Java version: 11.0.11, vendor: Ubuntu, runtime: /usr/lib/jvm/java-11-openjdk-amd64
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-124-generic", arch: "amd64", family: "unix"
 ```
 
 ## Tools and Frameworks
