@@ -1,6 +1,6 @@
 # Java JDK11 TDD Bitcoin Converter
 
-![dev.build](https://github.com/cloudacademy/java-tdd-bitcoinconverter/workflows/.github/workflows/dev.build.yml/badge.svg) ![prod.build](https://github.com/cloudacademy/java-tdd-bitcoinconverter/workflows/.github/workflows/prod.build.yml/badge.svg) [![code coverage](https://coveralls.io/repos/github/cloudacademy/java-tdd-bitcoinconverter/badge.svg?branch=main)](https://coveralls.io/github/cloudacademy/java-tdd-bitcoinconverter?branch=main)
+[![dev.build](https://github.com/cloudacademy/java-tdd-bitcoinconverter/actions/workflows/dev.build.yml/badge.svg)](https://github.com/cloudacademy/java-tdd-bitcoinconverter/actions/workflows/dev.build.yml) [![prod.build](https://github.com/cloudacademy/java-tdd-bitcoinconverter/actions/workflows/prod.build.yml/badge.svg)](https://github.com/cloudacademy/java-tdd-bitcoinconverter/actions/workflows/prod.build.yml) [![code coverage](https://coveralls.io/repos/github/cloudacademy/java-tdd-bitcoinconverter/badge.svg?branch=main)](https://coveralls.io/github/cloudacademy/java-tdd-bitcoinconverter?branch=main)
 
 ## Background
 The following repo contains source code developed using TDD (Test Driven Development) practices. The sample project implements a Java (JDK 11) library which interacts with the [Bitcoin Price Index](https://www.coindesk.com/coindesk-api) api.
