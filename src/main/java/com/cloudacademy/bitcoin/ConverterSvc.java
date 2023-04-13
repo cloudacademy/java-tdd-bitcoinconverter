@@ -16,9 +16,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class ConverterSvc 
-{
-    private final String BITCOIN_CURRENTPRICE_URL = "https://api.coindesk.com/v1/bpi/currentprice.json";
+public final class ConverterSvc {
+    static final String BITCOIN_CURRENTPRICE_URL = "https://api.coindesk.com/v1/bpi/currentprice.json";
     private final HttpGet httpget = new HttpGet(BITCOIN_CURRENTPRICE_URL);
 
     private CloseableHttpClient httpclient;
@@ -64,7 +63,7 @@ public class ConverterSvc
         this.httpclient = HttpClients.createDefault();
     }
 
-    public ConverterSvc(CloseableHttpClient httpClient) {
+    public ConverterSvc(final CloseableHttpClient httpClient) {
         this.httpclient = httpClient;
     }
 
@@ -74,12 +73,12 @@ public class ConverterSvc
         EUR
     }
 
-    public double getExchangeRate(Currency currency) {
+    public double getExchangeRate(final Currency currency) {
         double rate = 0;
 
         try (CloseableHttpResponse response = this.httpclient.execute(httpget)) {
             switch (response.getStatusLine().getStatusCode()) {
-                case 200:
+                case org.apache.http.HttpStatus.SC_OK:
                     InputStream inputStream = response.getEntity().getContent();
                     var json = new BufferedReader(new InputStreamReader(inputStream));
 
@@ -94,22 +93,22 @@ public class ConverterSvc
                     rate = -1;
             }
         } catch (IOException | ParseException ex) {
-            rate = -1;
+    rate = -1;
         }
 
         return rate;
     }
 
-    public double convertBitcoins(Currency currency, double coins) throws IllegalArgumentException {
+    public double convertBitcoins(final Currency currency, final double coins) throws IllegalArgumentException {
         double dollars = 0;
 
-        if(coins < 0) {
-            throw new IllegalArgumentException("Number of coins must not be less than zero"); 
+        if (coins < 0) {
+            throw new IllegalArgumentException("Number of coins must not be less than zero");
         }
 
         var exchangeRate = getExchangeRate(currency);
 
-        if(exchangeRate >= 0) {
+        if (exchangeRate >= 0) {
             dollars = exchangeRate * coins;
         } else {
             dollars = -1;
