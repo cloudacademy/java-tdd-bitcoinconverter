@@ -152,7 +152,37 @@
             <version>2.2.3</version>
           </dependency>
           </dependencies>
-      </plugin>
+        </plugin>
+
+        <plugin>
+          <groupId>org.cyclonedx</groupId>
+          <artifactId>cyclonedx-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>makeAggregateBom</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>io.github.pmckeown</groupId>
+          <artifactId>dependency-track-maven-plugin</artifactId>
+          <version>1.4.1</version>
+          <configuration>
+            <dependencyTrackBaseUrl>http://localhost:8081</dependencyTrackBaseUrl>
+            <apiKey>1dkJKhWqZRxIP3PsVLC7Rnf4psNyYIBM</apiKey>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>io.github.pmckeown</groupId>
+              <artifactId>dependency-track-maven-plugin</artifactId>
+              <version>1.4.1</version>
+            </dependency>
+          </dependencies>
+        </plugin>
 
       </plugins>
     </pluginManagement>
