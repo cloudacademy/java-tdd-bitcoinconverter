@@ -24,7 +24,7 @@ public final class ConverterSvc {
 
     /*
     //curl -s https://api.coindesk.com/v1/bpi/currentprice.json | jq .
-    //example json response from coindesk api:
+    //example data json response from coindesk api:
     {
         "time": {
             "updated": "Oct 15, 2020 22:55:00 UTC",
