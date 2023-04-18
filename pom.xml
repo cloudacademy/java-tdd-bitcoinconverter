@@ -173,7 +173,7 @@
           <version>1.4.1</version>
           <configuration>
             <dependencyTrackBaseUrl>http://localhost:8081</dependencyTrackBaseUrl>
-            <apiKey>1dkJKhWqZRxIP3PsVLC7Rnf4psNyYIBM</apiKey>
+            <apiKey>${dependencytrack.apikey}</apiKey>
           </configuration>
           <dependencies>
             <dependency>
