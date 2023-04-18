@@ -9,6 +9,7 @@ on:
       - main
   schedule:
     - cron: '23 4 * * 0'
+  workflow_dispatch:
 
 jobs:
   analyze:
@@ -35,8 +36,14 @@ jobs:
       with:
         languages: ${{ matrix.language }}
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+    - name: JDK 1.11 Install
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+
+    - name: Maven Build
+      run: |
+        mvn -B clean package
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
