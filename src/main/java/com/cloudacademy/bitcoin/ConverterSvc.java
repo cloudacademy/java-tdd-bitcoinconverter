@@ -92,8 +92,7 @@ public final class ConverterSvc {
                 default:
                     rate = -1;
             }
-        } catch (Exception ex) 
-        {
+        } catch (IOException | ParseException ex) {
             rate = -1;
         }
 

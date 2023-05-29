@@ -5,3 +5,5 @@ target/
 .vagrant/
 
 *.log
+
+talisman_report/
