@@ -15,7 +15,14 @@ echo ========================
 
 echo installing LATEST maven ...
 cd /tmp
-LATEST_SEMVER=$(curl -s https://maven.apache.org/download.cgi | grep "is the latest release and recommended version for all users." | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
+LATEST_SEMVER=$(curl -s https://repo1.maven.org/maven2/org/apache/maven/maven/maven-metadata.xml \
+| grep "<version>3.*</version>" \
+| tr -s " " \
+| cut -d ">" -f2 \
+| cut -d "<" -f1 \
+| sort -V -r \
+| head -1)
+LATEST_SEMVER=${LATEST_SEMVER:=3.9.3} # default to 3.9.3 if not detected in previous step
 echo downloading https://dlcdn.apache.org/maven/maven-3/$LATEST_SEMVER/binaries/apache-maven-$LATEST_SEMVER-bin.tar.gz ...
 curl -OLs --output /dev/null https://dlcdn.apache.org/maven/maven-3/$LATEST_SEMVER/binaries/apache-maven-$LATEST_SEMVER-bin.tar.gz
 tar xf /tmp/apache-maven-*.tar.gz -C /opt
