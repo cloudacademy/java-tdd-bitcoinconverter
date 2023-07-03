@@ -1,5 +1,4 @@
 $bootstrap = <<SCRIPT
-
 export DEBIAN_FRONTEND=noninteractive
 export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 
@@ -38,8 +37,7 @@ source /etc/profile.d/maven.sh
 
 echo ========================
 
-echo finished!!
-
+echo finished ...
 SCRIPT
 
 Vagrant.configure("2") do |config|

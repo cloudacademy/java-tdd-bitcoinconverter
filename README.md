@@ -29,11 +29,11 @@ OpenJDK 64-Bit Server VM (build 11.0.9+11, mixed mode)
 
 ```
 mvn --version
-Apache Maven 3.8.3 (ff8e977a158738155dc465c6a97ffaf31982d739)
+Apache Maven 3.9.3 (21122926829f1ead511c958d89bd2f672198ae9f)
 Maven home: /opt/maven
-Java version: 11.0.11, vendor: Ubuntu, runtime: /usr/lib/jvm/java-11-openjdk-amd64
+Java version: 11.0.19, vendor: Ubuntu, runtime: /usr/lib/jvm/java-11-openjdk-amd64
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "4.15.0-124-generic", arch: "amd64", family: "unix"
+OS name: "linux", version: "4.15.0-212-generic", arch: "amd64", family: "unix"
 ```
 
 ## Tools and Frameworks
@@ -206,15 +206,27 @@ The provided [Vagrantfile](https://github.com/cloudacademy/java-tdd-bitcoinconve
 $bootstrap = <<SCRIPT
 export DEBIAN_FRONTEND=noninteractive
 export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
+
 apt-get update
 apt-get install -y tree
+
 echo ========================
+
 echo installing openjdk-11-jdk...
 apt-get install -y openjdk-11-jdk
+
 echo ========================
+
 echo installing LATEST maven ...
 cd /tmp
-LATEST_SEMVER=$(curl -s https://maven.apache.org/download.cgi | grep "is the latest release and recommended version for all users." | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
+LATEST_SEMVER=$(curl -s https://repo1.maven.org/maven2/org/apache/maven/maven/maven-metadata.xml \
+| grep "<version>3.*</version>" \
+| tr -s " " \
+| cut -d ">" -f2 \
+| cut -d "<" -f1 \
+| sort -V -r \
+| head -1)
+LATEST_SEMVER=${LATEST_SEMVER:=3.9.3} # default to 3.9.3 if not detected in previous step
 echo downloading https://dlcdn.apache.org/maven/maven-3/$LATEST_SEMVER/binaries/apache-maven-$LATEST_SEMVER-bin.tar.gz ...
 curl -OLs --output /dev/null https://dlcdn.apache.org/maven/maven-3/$LATEST_SEMVER/binaries/apache-maven-$LATEST_SEMVER-bin.tar.gz
 tar xf /tmp/apache-maven-*.tar.gz -C /opt
@@ -227,8 +239,10 @@ export PATH=/opt/maven/bin:${PATH}
 EOF
 chmod +x /etc/profile.d/maven.sh
 source /etc/profile.d/maven.sh
+
 echo ========================
-echo finished!!
+
+echo finished ...
 SCRIPT
 
 Vagrant.configure("2") do |config|
