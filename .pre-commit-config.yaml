@@ -9,3 +9,8 @@ repos:
       - id: checkstyle
         exclude: /test/
         args: ["-c", "sun_checks.xml"]
+  - repo: https://github.com/thoughtworks/talisman
+    rev: v1.31.0
+    hooks:
+      - id: talisman-commit
+        entry: talisman --githook pre-commit
